@@ -66,7 +66,7 @@ module Worthwhile
       elsif params.has_key? :filedata
         actor.update_content(params[:filedata], datastream_id)
       elsif params.has_key? :generic_file
-        actor.update_metadata(params[:generic_file], params[:generic_file][:visibility])
+        actor.update_metadata(params[:generic_file], params[:visibility])
       end
 
       if success 
@@ -88,7 +88,7 @@ module Worthwhile
     end
 
     def actor
-      @actor ||= Sufia::GenericFile::Actor.new(@generic_file, current_user)
+      @actor ||= Worthwhile::CurationConcern::GenericFileActor.new(@generic_file, current_user)
     end
 
     def json_error(error, name=nil, additional_arguments={})
