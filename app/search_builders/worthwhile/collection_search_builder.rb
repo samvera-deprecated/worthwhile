@@ -1,6 +1,6 @@
-class Worthwhile::CollectionSearchBuilder < Hydra::Collections::SearchBuilder
+class Worthwhile::CollectionSearchBuilder < Worthwhile::SearchBuilder
 
-  # include Hydra::AccessControlsEnforcement
-  # include Hydra::Collections::SearchBehaviors
+  include BlacklightAdvancedSearch::AdvancedSearchBuilder
+  include Hydra::Collections::SearchBehaviors
 
 end
